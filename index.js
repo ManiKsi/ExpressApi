@@ -13,10 +13,10 @@ AWS.config.update({
 var app = express();
 app.use(express.json());
 app.use(cors());
-app.listen(process.env.port || 3001);
+app.listen(process.env.PORT || 3000);
 const dynamoClient = new AWS.DynamoDB.DocumentClient();
 
-app.get("/test", async (req, res) => {
+app.get("/", async (req, res) => {
   res.send("Hello");
 });
 //get MetaDAta
@@ -28,6 +28,7 @@ app.get("/getCat", async (req, res) => {
   const data = await dynamoClient.scan(params).promise();
   res.send(data.Items);
 });
+
 app.post("/getStyles", async (req, res) => {
   if (req.body.category) {
     const params = {
@@ -279,3 +280,4 @@ app.post("/dataSort", async (req, res) => {
     }
   });
 });
+app.listen(process.env.PORT || 3000);
