@@ -1,19 +1,19 @@
-// const AWS = require("aws-sdk");
+const AWS = require("aws-sdk");
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { json } = require("express");
 
-// AWS.config.update({
-//   region: process.env.AWS_DEFAULT_REGION,
-//   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-//   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY_ID,
-// });
+AWS.config.update({
+  region: "ap-south-1",
+  accessKeyId: "AKIA2V3TRRS2XGH46XUM",
+  secretAccessKey: "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",
+});
 
 var app = express();
 app.use(express.json());
 app.use(cors());
-// const dynamoClient = new AWS.DynamoDB.DocumentClient();
+const dynamoClient = new AWS.DynamoDB.DocumentClient();
 
 app.get("/", async (req, res) => {
   res.send("Hello");
