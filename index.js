@@ -19,14 +19,14 @@ app.get("/", async (req, res) => {
   res.send("Hello");
 });
 //get MetaDAta
-// app.get("/getCat", async (req, res) => {
-//   const params = {
-//     TableName: "basic-data",
-//     ProjectionExpression: "category",
-//   };
-//   const data = await dynamoClient.scan(params).promise();
-//   res.send(data.Items);
-// });
+app.get("/getCat", async (req, res) => {
+  const params = {
+    TableName: "basic-data",
+    ProjectionExpression: "category",
+  };
+  const data = await dynamoClient.scan(params).promise();
+  res.send(data.Items);
+});
 
 // app.post("/getStyles", async (req, res) => {
 //   if (req.body.category) {
