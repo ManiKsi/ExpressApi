@@ -5,9 +5,9 @@ const cors = require("cors");
 const { json } = require("express");
 
 AWS.config.update({
-  region: "ap-south-1",
-  accessKeyId: "AKIA2V3TRRS2XGH46XUM",
-  secretAccessKey: "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",
+  region: process.env.REGION,
+  accessKeyId: process.env.ACCESS_KEY_ID,
+  secretAccessKey: process.env.SECRET_ACCESS_KEY,
 });
 
 var app = express();
